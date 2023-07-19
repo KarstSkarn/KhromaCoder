@@ -1,0 +1,7 @@
+C:\Users\Falken\Documents\KCCompilations\Beta1\KhromaCoder.pdb
+C:\Users\Falken\Documents\KCCompilations\Beta1\D3DCompiler_47_cor3.dll
+C:\Users\Falken\Documents\KCCompilations\Beta1\PenImc_cor3.dll
+C:\Users\Falken\Documents\KCCompilations\Beta1\PresentationNative_cor3.dll
+C:\Users\Falken\Documents\KCCompilations\Beta1\vcruntime140_cor3.dll
+C:\Users\Falken\Documents\KCCompilations\Beta1\wpfgfx_cor3.dll
+C:\Users\Falken\Documents\KCCompilations\Beta1\KhromaCoder.exe

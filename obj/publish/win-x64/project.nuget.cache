@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xo/EZv0/ebEC215Y7OQzyffN0IqjgfmJQ7ve0NKre8UxpXIMqUAcDIxAFlZih17VVL+b0/ZEp/1ro2tAH0Owhw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Falken\\Documents\\KhromaCoder\\KhromaCoder\\KhromaCoder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Falken\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\Falken\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\Falken\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.12\\microsoft.netcore.app.runtime.win-x64.6.0.12.nupkg.sha512",
+    "C:\\Users\\Falken\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.12\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.12.nupkg.sha512",
+    "C:\\Users\\Falken\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.12\\microsoft.aspnetcore.app.runtime.win-x64.6.0.12.nupkg.sha512",
+    "C:\\Users\\Falken\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.12\\microsoft.netcore.app.crossgen2.win-x64.6.0.12.nupkg.sha512",
+    "C:\\Users\\Falken\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22621.28\\microsoft.windows.sdk.net.ref.10.0.22621.28.nupkg.sha512"
+  ],
+  "logs": []
+}
