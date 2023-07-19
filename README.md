@@ -30,13 +30,12 @@ For transparency purposes here you have the hashes for both the *.zip* and direc
 **Khroma Coder 1.0.17 Release.zip SHA 256**
 
 `cd17a640371b53aa01304335794b625af792924ad4a22fc282b4be0ee14bde72`
-
 VirusTotal [link here.](https://www.virustotal.com/gui/file/cd17a640371b53aa01304335794b625af792924ad4a22fc282b4be0ee14bde72 "link here.")
+
 
 **KhromaCoder.exe (1.0.17) SHA 256**
 
 `36896be97e643a63b4dff6dd26f6d66f6f3c2407f5f519d9db59994a62a51ca8`
-
 VirusTotal [link here.](https://www.virustotal.com/gui/file/36896be97e643a63b4dff6dd26f6d66f6f3c2407f5f519d9db59994a62a51ca8 "link here.")
 
 ------------
