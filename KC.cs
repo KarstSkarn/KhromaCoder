@@ -460,8 +460,8 @@ class KC
             }
             IntPtr currentWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
             bool isFocused = KCIsWindowInFocus(currentWindowHandle);
-            if (!isFocused) // TO DO: This isn't working at all so that's why I got it negated
-            {
+            //if (isFocused) // TO DO: This isn't working at all so that's why I got it negated
+            //{
                 keyState = GetAsyncKeyState(38); // UP
                 if (UIKeyDown(keyState))
                 {
@@ -522,7 +522,7 @@ class KC
                     break;
                 }
                 UICheckWindowSize();
-            }
+            //}
         }
 
     }
@@ -987,8 +987,8 @@ class KC
             }
             IntPtr currentWindowHandle = Process.GetCurrentProcess().MainWindowHandle;
             bool isFocused = KCIsWindowInFocus(currentWindowHandle);
-            if (!isFocused) // TO DO: This isn't working at all so that's why I got it negated
-            {
+            //if (isFocused) // TO DO: This isn't working at all so that's why I got it negated
+            //{
                 keyState = GetAsyncKeyState(38); // UP
                 if (UIKeyDown(keyState))
                 {
@@ -1146,7 +1146,7 @@ class KC
                     break;
                 }
                 UICheckWindowSize();
-            }
+            //}
         }
     }
     // CONSOLE WRITING SIMPLIFICATION
