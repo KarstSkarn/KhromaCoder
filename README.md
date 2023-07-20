@@ -26,6 +26,8 @@ YouTube Demo Video: https://www.youtube.com/watch?v=30oVjJnQ5Og
   Not at all; files are plainly converted into video following the data density rules stated in the options. Nothing is encoded beyond that.
 - **Requires installation?**
   No. The executable is completely standalone and that's why its so relatively big.
+- **Can encrypt any file extension (Including .zip)?**
+  Yes. The program doesn't really care about the file extension at all. It just encodes it ignoring completely what kind of file it is.
 
 ### File Security Check
 File **is 100% safe**. You can check the following hashes below. Despite this some minor AntiVirus software may flag it as some kind of threat possibly because the software is not signed and some dependency triggering something.
