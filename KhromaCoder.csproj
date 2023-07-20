@@ -11,9 +11,9 @@
     <SignAssembly>False</SignAssembly>
     <PackageId>KhromaCoder</PackageId>
     <Title>Khroma Coder</Title>
-    <Version>1.0.17</Version>
-    <Authors>Karst Skarn</Authors>
-    <Company>Karst Skarn</Company>
+    <Version>1.0.18</Version>
+    <Authors>KarstSkarn</Authors>
+    <Company>KarstSkarn</Company>
     <Product>Khroma Coder</Product>
     <Description>Encode files into videos and retrieve them back.</Description>
     <PackageProjectUrl>https://github.com/KarstSkarn</PackageProjectUrl>

@@ -18,7 +18,7 @@ class KC
     static byte menuHorizontalPointer = 0;
     static byte menuStatus = 0;
     static string consoleTitle = "Khroma Coder ";
-    static string executableVersion = "1.0.17";
+    static string executableVersion = "1.0.18";
 
     // GENERAL OPTIONS DATA
     static byte verboseLevel = 0;
@@ -557,7 +557,7 @@ class KC
                 {
                     decodeFilePath = openFileDialog.FileName;
                     WR("  Selected file: ", "Gray", "Black");
-                    WR(decodeFilePath, "Cyan", "Black");
+                    WR(KCGetFinalFileName(decodeFilePath), "Cyan", "Black");
                     if (decodeFilePath.Substring(decodeFilePath.Length - 3, 3) == "mp4")
                     {
                         WRSetCursor(4, 6);
@@ -592,9 +592,9 @@ class KC
                 WRSetCursor(4, 3);
                 WR("■ ", "Cyan", "Black");
                 WR("Decoding: ", "Gray", "Black");
-                WR(decodeFilePath, "White", "Black");
-                KCResetAllValues();
+                WR(KCGetFinalFileName(decodeFilePath), "Cyan", "Black");
                 KCReadVideoFrames(decodeFilePath);
+                KCResetAllValues();
                 Thread.Sleep(3000);
                 menuStatus = 0;
                 break;
@@ -665,7 +665,6 @@ class KC
                 WR(KCGetFinalFileName(encodeFilePath), "Cyan", "Black");
                 WR(" - Parsed as: ", "Gray", "Black");
                 WR(KCRemoveSpecialCharacters(KCGetFinalFileName(encodeFilePath)), "Cyan", "Black");
-                KCResetAllValues();
                 encodingProcessStep = 0;
                 KCGenerateVideoFrames(encodeFilePath, OUTW, OUTH, 2);
                 encodingProcessStep = 1;
@@ -674,6 +673,7 @@ class KC
                 encodingProcessStep = 2;
                 UIUpdateEncodingStats(0, 0, 0);
                 KCClearTMPFiles();
+                KCResetAllValues();
                 Thread.Sleep(3000);
                 menuStatus = 0;
                 break;
@@ -1221,7 +1221,6 @@ class KC
     static void KCResetAllValues()
     {
         readStep = 0;
-        framesPerSecond = 60;
         x0Pos = 0;
         y0Pos = 0;
         x1Pos = 0;
@@ -1374,9 +1373,9 @@ class KC
         int H_POIX = 0;
         int H_POIY = 0;
         int CYCLECOUNTER = 0;
-        string[] TMP_STRARRAY = new string[200];
+        string[] TMP_STRARRAY = new string[2048];
         string BYTELIST = "";
-        for (int i = 0; i < 200; i++) { TMP_STRARRAY[i] = "NULL"; }
+        for (int i = 0; i < 2048; i++) { TMP_STRARRAY[i] = "NULL"; }
         Color TMP_COL = new Color();
         double BLISTSIZE = KCGetRawFileLength(sourceFile);
         double BLISTPOINTER = 0;
@@ -2582,6 +2581,15 @@ class KC
                                     readBuffer = "";
                                     UIWriteLog("Checksum separator found at {" + matchPosition.ToString() + " X}  {" + y.ToString() + " Y}", 3);
                                 }
+                                else if (readBuffer.Contains("1010"))
+                                {
+                                    skipFlag = true;
+                                    readStep = 200;
+                                    var matchPosition = x - 4;
+                                    x = matchPosition + 3;
+                                    readBuffer = "";
+                                    UIWriteLog("File end separator found at {" + x.ToString() + " X}  {" + y.ToString() + " Y}", 3);
+                                }
                                 else
                                 {
                                     readBuffer = "";
@@ -2626,6 +2634,41 @@ class KC
                                         KCResetFrameData(100);
                                     }
                                     genericEndXPointer = 0;
+                                }
+                                else
+                                {
+                                    readBuffer = readBuffer + singleBuffer;
+                                    tmpCounterX = x;
+                                    tmpCounterY = y;
+                                }
+                            }
+                        }
+                    }
+                    if (!skipFlag)
+                    {
+                        if (readStep == 200) // FILE END CHECKSUM VALUE READ
+                        {
+                            string singleBuffer = "";
+                            singleBuffer = KCProcessPixelData(r, g, b);
+                            if (singleBuffer != "NULL")
+                            {
+                                if (singleBuffer == "♦")
+                                {
+                                    skipFlag = true;
+                                    x--;
+                                    genericEndXPointer = x;
+                                    UIWriteLog("Checksum binary value is {" + readBuffer + "]", 4);
+                                    UIWriteLog("Checksum value is [" + checksumReadValue + "]", 3);
+                                    UIWriteLog("Checksum local internal value is [" + CHKSUMGet().ToString("X2") + "]", 3);
+                                    if (CHKSUMGet().ToString("X2") == checksumReadValue)
+                                    {
+                                        UIWriteLog("Checksum match!", 3);
+                                        KCResetFrameData(100);
+                                    }
+                                    else
+                                    {
+                                        KCResetFrameData(100);
+                                    }
                                 }
                                 else
                                 {
@@ -2893,10 +2936,8 @@ class KC
     }
     static double KCGetRawFileLength(string filePath)
     {
-        int fileLength;
-        byte[] fileData = File.ReadAllBytes(filePath);
-        fileLength = fileData.Length;
-        return fileLength;
+        FileInfo fileInfo = new FileInfo(filePath);
+        return fileInfo.Length;
     }
     static (string, int, int) KCReadRawFileData(string filePath, double cIndex, double mIndex)
     {
@@ -2910,7 +2951,7 @@ class KC
             {
                 using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 {
-                    fileLength = (int)fs.Length;
+                    fileLength = Convert.ToInt32(KCGetRawFileLength(filePath));
 
                     byte[] buffer = new byte[Convert.ToInt32(mIndex) - Convert.ToInt32(cIndex)];
                     fs.Seek((long)cIndex, SeekOrigin.Begin);
@@ -2924,22 +2965,11 @@ class KC
                         currentIndex++;
                     }
                 }
-                /*
-                byte[] fileData = File.ReadAllBytes(filePath);
-                fileLength = fileData.Length;
-
-                for (double i = cIndex; i < mIndex && i < fileLength; i++)
-                {
-                    byte b = fileData[Convert.ToInt32(i)];
-                    string binaryString = Convert.ToString(b, 2).PadLeft(8, '0');
-                    BYTELIST += binaryString;
-                    currentIndex++;
-                }
-                */
             }
             catch (IOException e)
             {
                 UIWriteLog("Error ocurred while reading the file <" + filePath + "> [" + e.Message + "]", 2);
+                fatalAlerts++;
             }
         }
         return (BYTELIST, currentIndex, fileLength);
@@ -3158,7 +3188,7 @@ class KC
     {
         string inputFolder = KCTEMPORARYDATADIRECTORY;
         string outputVideo = KCVIDEOOUTDIRECTORY + KCGetFileNameWithoutExtension(originalFile) + ".mp4";
-        string arguments = "null";
+        string arguments = "NULL";
         string codecUsed = "264";
         if (codec == "h264")
         {

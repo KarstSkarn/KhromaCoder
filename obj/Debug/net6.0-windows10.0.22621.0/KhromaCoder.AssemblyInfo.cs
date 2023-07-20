@@ -11,15 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Karst Skarn")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("KarstSkarn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("https://github.com/KarstSkarn/KasTAS")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Encode files into videos and retrieve them back.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.17.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.17")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.18.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.18")]
 [assembly: System.Reflection.AssemblyProductAttribute("Khroma Coder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KhromaCoder")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.17.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.18.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.22621.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.22621.0")]
 

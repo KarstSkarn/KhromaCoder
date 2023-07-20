@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "KhromaCoder/1.0.17": {
+      "KhromaCoder/1.0.18": {
         "dependencies": {
           "System.Drawing.Common": "7.0.0",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.22621.28"
@@ -65,7 +65,7 @@
     }
   },
   "libraries": {
-    "KhromaCoder/1.0.17": {
+    "KhromaCoder/1.0.18": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
