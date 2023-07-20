@@ -10,7 +10,7 @@ YouTube Demo Video: https://www.youtube.com/watch?v=30oVjJnQ5Og
 - Minor level of optimization in the Encoding / Decoding process.
 - Minor corrections in the way it fetches some file data.
 - Ensured that can encode any size of file (Refering to big files) but stills pending some level of optimization.
-- Trimmed unused dependencies code so the size of the executable went down considerably.
+- Initially I did trim unused dependencies code but some of them didn't like that very much so It keeps having more or less the same size.
 
 ### Khroma Coder 1.0.17 Version Features
 - Main release; just basic features.
@@ -40,14 +40,14 @@ For transparency purposes here you have the hashes for both the *.zip* and direc
 
 **Khroma Coder 1.0.18 Release.zip SHA 256**
 
-`2b741cfe82f8b1a45af0ed40fafec95d8a265b651ae76176c040b5795dd77f06`
-VirusTotal [link here.](https://www.virustotal.com/gui/file/e86414e45d7ca28380e29fbd1d04c0df07f5240c27d1fe5ed7c67a65f1fc4cf5 "link here.")
+`b9a0576325d8240c13cb2fc8f663bb1c0274891191df429b2390d726434765f7`
+VirusTotal [link here.](https://www.virustotal.com/gui/file/b9a0576325d8240c13cb2fc8f663bb1c0274891191df429b2390d726434765f7 "link here.")
 
 
 **KhromaCoder.exe (1.0.18) SHA 256**
 
-`e86414e45d7ca28380e29fbd1d04c0df07f5240c27d1fe5ed7c67a65f1fc4cf5`
-VirusTotal [link here.](https://www.virustotal.com/gui/file/2b741cfe82f8b1a45af0ed40fafec95d8a265b651ae76176c040b5795dd77f06 "link here.")
+`65d10da25f606f0aaeefc160e526cac1ee5928c0e3f047148f6be8320c70e805`
+VirusTotal [link here.](https://www.virustotal.com/gui/file/65d10da25f606f0aaeefc160e526cac1ee5928c0e3f047148f6be8320c70e805 "link here.")
 
 ###### Khroma Coder 1.0.17 Release File Security Check
 
