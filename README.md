@@ -3,6 +3,7 @@
 
 
 YouTube Demo Video: https://www.youtube.com/watch?v=30oVjJnQ5Og
+Official Discord Server: https://discord.gg/xYuM8uxkAY
 
 ### Khroma Coder 1.0.18 Version Features
 - Fixed bugs happening with small files; now it can encode any small file without any issue.
